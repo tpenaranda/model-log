@@ -1,0 +1,28 @@
+{
+    "name": "tpenaranda/model-log",
+    "description": "A Laravel 5 package to automatically log attributes changes on any of your app models.",
+    "type": "library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Tate Peñaranda",
+            "email": "tate@xenir.com.ar"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "~7.0.0",
+        "laravel/framework": "~5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TPenaranda\\ModelLog\\Providers\\ModelLogServiceProvider"
+            ],
+            "aliases": {
+                "ModelLog": "TPenaranda\\ModelLog\\Facade",
+                "EnableModelLog": "TPenaranda\\ModelLog\\Traits\\EnableModelLog"
+            }
+        }
+    },
+}

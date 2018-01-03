@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
+use TPenaranda\ModelLog\ModelLog;
+use {{ namespace }}\{{ model_name }};
+
+class {{ migration_class_name }} extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $model = new {{ model_name }};
+        Schema::dropIfExists(ModelLog::getLogTableName($model));
+        Schema::create(ModelLog::getLogTableName($model), ModelLog::getLogTableSchema($model));
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists(ModelLog::getLogTableName(new {{ model_name }}));
+    }
+}
