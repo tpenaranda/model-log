@@ -3,7 +3,7 @@ A Laravel 5 package to automatically log attributes changes on any of your app m
 
 ## About package
 This package is intended for tracking changes of your Eloquent models inside your Laravel application.
-A new DB table will be created and anytime a model attribute is updated an entry is automatically made on the new log table.
+A new DB table will be created and everytime a model attribute is updated an entry will be automatically created on the DB log table.
 
 ## Installation
 
@@ -18,12 +18,12 @@ Run artisan command to generate the migration for the new log table.
 Add trait and specify attributes you want to observe/track for changes.
 
 ```
-    class MyModel extends Model
-    {
-        use \EnableModelLog;
+class MyModel extends Model
+{
+    use \EnableModelLog;
 
-        protected $log = ['my_attribute', 'track_this_column_too'];
-    }
+    protected $log = ['my_attribute', 'track_this_column_too'];
+}
 ```
 
 ## Usage
@@ -31,5 +31,5 @@ Add trait and specify attributes you want to observe/track for changes.
 Retrieve log entries:
 
 ```
-        $my_model->logEntries
+    $my_model->logEntries;
 ```
