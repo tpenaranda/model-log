@@ -65,4 +65,17 @@ trait EnableModelLog
     {
         return $this->hasMany(self::class . 'LogEntry');
     }
+
+    public function getLogEntriesAttribute()
+    {
+        $output = collect();
+
+        foreach ($this->logEntries()->get() as $entry) {
+            $entry->from = $entry->from;
+            $entry->to = $entry->to;
+            $output->push($entry);
+        }
+
+        return $output;
+    }
 }
