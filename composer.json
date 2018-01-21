@@ -2,7 +2,7 @@
     "name": "tpenaranda/model-log",
     "description": "A Laravel 5 package to automatically log attributes changes on any of your app models.",
     "type": "library",
-    "license": "GPL",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Tate Peñaranda",
