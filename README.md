@@ -39,10 +39,11 @@ $my_model->logEntries;
 
 Create (or drop) ModelLog table manually:
 
-$ php artisan model-log:create-log-table
+    $ php artisan model-log:create-log-table
 
 
 Flush ModelLog table.
+
 ```
 \ModelLog::flushAll()
 ```
