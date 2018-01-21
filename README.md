@@ -15,12 +15,12 @@ Run migrations to create ModelLog table.
 
     $ php artisan migrate
 
-Add trait and specify attributes you want to observe/track for changes.
+Add 'ObservedByModelLog' trait to your model and specify attributes you want to observe/track for changes.
 
 ```
 class MyModel extends Model
 {
-    use \ModelLog;
+    use \ObservedByModelLog
 
     protected $log = ['my_attribute', 'track_this_column_too'];
 }

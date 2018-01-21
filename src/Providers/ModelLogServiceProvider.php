@@ -17,7 +17,7 @@ class ModelLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'../Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Migrations');
 
         if ($this->app->runningInConsole()) {
             $this->commands([CreateLogTableCommand::class]);
