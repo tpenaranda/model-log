@@ -7,20 +7,20 @@ A new DB table will be created and everytime a model attribute is updated an ent
 
 ## Installation
 
-Require this package in your composer.json
+Install package using Composer (getcomposer.org).
 
     $ composer require tpenaranda/model-log
 
-Run artisan command to generate the migration for the new log table.
+Run migrations to create ModelLog table.
 
-    $ php artisan model-log:create-log-table
+    $ php artisan migrate
 
 Add trait and specify attributes you want to observe/track for changes.
 
 ```
 class MyModel extends Model
 {
-    use \EnableModelLog;
+    use \ModelLog;
 
     protected $log = ['my_attribute', 'track_this_column_too'];
 }
@@ -31,5 +31,18 @@ class MyModel extends Model
 Retrieve log entries:
 
 ```
-    $my_model->logEntries;
+$my_model->logEntries;
+```
+
+
+## Advanced usage
+
+Create (or drop) ModelLog table manually:
+
+$ php artisan model-log:create-log-table
+
+
+Flush ModelLog table.
+```
+\ModelLog::flushAll()
 ```

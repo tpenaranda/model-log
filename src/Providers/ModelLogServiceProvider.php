@@ -3,7 +3,10 @@
 namespace TPenaranda\ModelLog\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use TPenaranda\ModelLog\{ModelLog, Commands\CreateLogTableCommand};
+use TPenaranda\ModelLog\{
+    ModelLog,
+    Commands\CreateLogTableCommand
+};
 
 class ModelLogServiceProvider extends ServiceProvider
 {
@@ -14,6 +17,8 @@ class ModelLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadMigrationsFrom(__DIR__.'../Migrations');
+
         if ($this->app->runningInConsole()) {
             $this->commands([CreateLogTableCommand::class]);
         }

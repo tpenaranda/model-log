@@ -5,28 +5,31 @@ namespace TPenaranda\ModelLog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 
-class ModelLog
+class ModelLog extends Model
 {
-    public static function getLogTableName(Model $model)
+    protected $table = 'tpenaranda_model_log_logs';
+
+    protected $fillable = [
+        'attribute',
+        'from',
+        'model_foreign_key',
+        'model_name',
+        'to',
+        'updated_by_user_id',
+    ];
+
+    public function getFromAttribute()
     {
-        return $model::getModel()->getTable() . '_log';
+        return is_string($this->attributes['from']) ? unserialize($this->attributes['from']) : null;
     }
 
-    public static function getLogTableSchema(Model $model) {
-        $model_foreign_key = $model::getModel()->getForeignKey();
-        $model_table_name = $model::getModel()->getTable();
+    public function getToAttribute()
+    {
+        return is_string($this->attributes['to']) ? unserialize($this->attributes['to']) : null;
+    }
 
-        return function (Blueprint $table) use ($model_foreign_key, $model_table_name) {
-            $table->increments('id');
-            $table->integer($model_foreign_key)->unsigned()->index();
-            $table->string('attribute')->index();
-            $table->string('from');
-            $table->string('to');
-            $table->integer('updated_by_user_id')->nullable()->unsigned()->index();
-            $table->foreign($model_foreign_key)->references('id')->on($model_table_name);
-            $table->foreign('updated_by_user_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
-        };
+    public static function flushAll()
+    {
+        return self::all()->forceDelete();
     }
 }
