@@ -25,7 +25,8 @@
                 "TPenaranda\\ModelLog\\Providers\\ModelLogServiceProvider"
             ],
             "aliases": {
-                "ObservedByModelLog": "TPenaranda\\ModelLog\\Traits\\ModelLog"
+                "ModelLogEntry": "TPenaranda\\ModelLog\\ModelLogEntry",
+                "ObservedByModelLog": "TPenaranda\\ModelLog\\Traits\\ObservedByModelLog"
             }
         }
     }

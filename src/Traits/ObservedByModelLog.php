@@ -2,17 +2,17 @@
 
 namespace TPenaranda\ModelLog\Traits;
 
-use TPenaranda\ModelLog\ModelLog as ModelLogModel;
+use TPenaranda\ModelLog\ModelLogEntry;
 use ReflectionClass;
 
-trait ModelLog
+trait ObservedByModelLog
 {
-    protected static function bootModelLog()
+    protected static function bootObservedByModelLog()
     {
         static::updating(function ($model) {
             foreach ((array) $model->log as $attribute) {
                 if (in_array($attribute, array_keys($model->getDirty()))) {
-                    ModelLogModel::create([
+                    ModelLogEntry::create([
                         'attribute' => $attribute,
                         'from' => serialize($model->getOriginal($attribute)),
                         'model_foreign_key' => $model->id,
@@ -29,7 +29,7 @@ trait ModelLog
     {
         $output = collect();
 
-        foreach (ModelLogModel::where('model_name', get_class($this))->get() as $item) {
+        foreach (ModelLogEntry::where('model_name', get_class($this))->get() as $item) {
             $item->from = $item->from;
             $item->to = $item->to;
             $output->push($item);

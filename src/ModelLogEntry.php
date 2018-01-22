@@ -3,9 +3,8 @@
 namespace TPenaranda\ModelLog;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Schema\Blueprint;
 
-class ModelLog extends Model
+class ModelLogEntry extends Model
 {
     protected $table = 'tpenaranda_model_log_logs';
 

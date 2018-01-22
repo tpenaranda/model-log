@@ -37,13 +37,13 @@ $my_model->logEntries;
 
 ## Advanced usage
 
-Create (or drop) ModelLog table manually:
+Create (or drop and create) ModelLog table manually:
 
     $ php artisan model-log:create-log-table
 
 
-Flush ModelLog table.
+Flush ModelLog table:
 
 ```
-\ModelLog::flushAll()
+\ModelLogEntry::flushAll();
 ```
