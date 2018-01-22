@@ -29,7 +29,7 @@ trait ObservedByModelLog
     {
         $output = collect();
 
-        foreach (ModelLogEntry::where('model_name', get_class($this))->get() as $item) {
+        foreach (ModelLogEntry::where('model_name', get_class($this))->where('model_foreign_key', $this->id)->get() as $item) {
             $item->from = $item->from;
             $item->to = $item->to;
             $output->push($item);

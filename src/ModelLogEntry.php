@@ -29,6 +29,6 @@ class ModelLogEntry extends Model
 
     public static function flushAll()
     {
-        return self::all()->forceDelete();
+        return self::all()->each->forceDelete();
     }
 }
