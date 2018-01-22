@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModelLogEntry extends Model
 {
-    protected $table = 'tpenaranda_model_log_logs';
+    protected $table = 'tpenaranda_model_log_log_entries';
 
     protected $fillable = [
         'attribute',
