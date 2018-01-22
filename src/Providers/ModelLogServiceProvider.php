@@ -4,7 +4,7 @@ namespace TPenaranda\ModelLog\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use TPenaranda\ModelLog\{
-    ModelLog,
+    ModelLogEntry,
     Commands\CreateLogTableCommand
 };
 
@@ -31,8 +31,8 @@ class ModelLogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['tpenaranda-model-log'] = $this->app->singleton(ModelLog::class, function($app) {
-            return new ModelLog;
+        $this->app['tpenaranda-model-log'] = $this->app->singleton(ModelLogEntry::class, function($app) {
+            return new ModelLogEntry;
         });
     }
 }

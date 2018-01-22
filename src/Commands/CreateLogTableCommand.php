@@ -5,7 +5,7 @@ namespace TPenaranda\ModelLog\Commands;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
-use TPenaranda\ModelLog\ModelLog;
+use TPenaranda\ModelLog\ModelLogEntry;
 use File;
 
 class CreateLogTableCommand extends Command
@@ -23,7 +23,7 @@ class CreateLogTableCommand extends Command
 
     public function handle()
     {
-        $this->table_name = ModelLog::getModel()->getTable();
+        $this->table_name = ModelLogEntry::getModel()->getTable();
 
         $this->calculateMigrationNumbers();
 
@@ -35,7 +35,7 @@ class CreateLogTableCommand extends Command
             }
 
             $this->alert('All ModelLog data will be lost!.');
-            $this->info('Note: If your intention is only to drop all log data it can be done by running \ModelLog::pruneAll()');
+            $this->info('Note: If your intention is only to drop all log data it can be done by running \ModelLogEntry::flushAll()');
 
             if (!$this->confirm("Continue?")) {
                 return;
