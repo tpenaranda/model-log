@@ -18,8 +18,8 @@ class LogEntries extends Migration
             $table->integer('model_foreign_key')->unsigned()->index();
             $table->string('model_name')->index();
             $table->string('attribute')->index();
-            $table->string('from');
-            $table->string('to');
+            $table->text('from');
+            $table->text('to');
             $table->integer('updated_by_user_id')->nullable()->unsigned()->index();
             $table->foreign('updated_by_user_id')->references('id')->on('users');
             $table->timestamps();

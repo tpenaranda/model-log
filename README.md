@@ -5,7 +5,12 @@ A Laravel 5 package to automatically log attributes changes on any of your app m
 This package is intended for tracking changes of your Eloquent models inside your Laravel application.
 A new DB table will be created and everytime a model attribute is updated an entry will be automatically created on the DB log table.
 
-## Installation
+## Requirements
+
+- PHP 7
+- Laravel 5
+
+## Installation for Laravel 5.5 (package discovery support)
 
 Install package using Composer (getcomposer.org).
 
@@ -26,7 +31,44 @@ class MyModel extends Model
 }
 ```
 
+## Installation for Laravel 5 to 5.4
+
+Install package using Composer (getcomposer.org).
+
+    $ composer require tpenaranda/model-log
+
+Add service provider and alias in config/app.php
+
+```
+    'providers' => [
+        ...
+        TPenaranda\ModelLog\Providers\ModelLogServiceProvider::class,
+    ],
+    'aliases' => [
+        ...
+        'ObservedByModelLog' => TPenaranda\ModelLog\Traits\ObservedByModelLog::class,
+    ],
+
+```
+
+Run  ModelLog command in order to create ModelLog DB table.
+
+    $ php artisan model-log:create-log-table
+
 ## Usage
+
+Add 'ObservedByModelLog' trait to your model and specify attributes you want to observe/track for changes.
+
+```
+class MyModel extends Model
+{
+    use \ObservedByModelLog
+
+    protected $log = ['my_attribute', 'track_this_column_too'];
+}
+```
+
+Now after every update on that model, observed attributes will be logged automatically.
 
 Retrieve log entries:
 
