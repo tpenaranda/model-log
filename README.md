@@ -20,17 +20,6 @@ Run migrations to create ModelLog table.
 
     $ php artisan migrate
 
-Add 'ObservedByModelLog' trait to your model and specify attributes you want to observe/track for changes.
-
-```
-class MyModel extends Model
-{
-    use \ObservedByModelLog
-
-    protected $log = ['my_attribute', 'track_this_column_too'];
-}
-```
-
 ## Installation for Laravel 5 to 5.4
 
 Install package using Composer (getcomposer.org).
