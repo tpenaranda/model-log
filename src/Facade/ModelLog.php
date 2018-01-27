@@ -1,6 +1,6 @@
 <?php
 
-namespace TPenaranda\LModelLog\Facade;
+namespace TPenaranda\ModelLog\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
