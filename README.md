@@ -35,6 +35,7 @@ Add service provider and alias in config/app.php
     ],
     'aliases' => [
         ...
+        'ModelLogEntry' => TPenaranda\ModelLog\ModelLogEntry::class,
         'ObservedByModelLog' => TPenaranda\ModelLog\Traits\ObservedByModelLog::class,
     ],
 
@@ -58,6 +59,7 @@ class MyModel extends Model
 ```
 
 Now after every update on that model, observed attributes will be logged automatically.
+Use `protected $log = 'all';` (as string, not array) to log any change.
 
 Retrieve log entries:
 
