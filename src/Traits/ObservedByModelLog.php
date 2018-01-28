@@ -27,14 +27,6 @@ trait ObservedByModelLog
 
     public function getLogEntriesAttribute()
     {
-        $output = collect();
-
-        foreach (ModelLogEntry::where('model_name', get_class($this))->where('model_foreign_key', $this->id)->get() as $item) {
-            $item->from = $item->from;
-            $item->to = $item->to;
-            $output->push($item);
-        }
-
-        return $output;
+        return ModelLogEntry::forModel($this)->get()->each(function ($i) { return $i->unserializeData(); });
     }
 }
