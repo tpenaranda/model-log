@@ -7,7 +7,6 @@ A new DB table will be created and everytime a model attribute is updated an ent
 
 ## Requirements
 
-- PHP 7
 - Laravel 5
 
 ## Installation for Laravel 5.5 (package discovery support)

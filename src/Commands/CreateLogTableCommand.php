@@ -35,7 +35,7 @@ class CreateLogTableCommand extends Command
 
                     case 'drop':
                         if ($this->drop_migration_count <= $second_match) {
-                           $this->drop_migration_count = $second_match + 1;
+                            $this->drop_migration_count = $second_match + 1;
                         }
                         break;
                 }
@@ -58,7 +58,9 @@ class CreateLogTableCommand extends Command
             'migration_count' => $migration_count,
         ];
 
-        $map_function = function ($item) { return "/\{\{ $item \}\}/"; };
+        $map_function = function ($item) {
+            return "/\{\{ $item \}\}/";
+        };
         $output_data = preg_replace(array_map($map_function, array_keys($replacements)), array_values($replacements), $stub_data);
 
         $migration_count_with_underscore = empty($migration_count) ? false : "_{$migration_count}";
