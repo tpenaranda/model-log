@@ -43,7 +43,7 @@ class CreateLogTableCommand extends Command
         }
     }
 
-    protected function buildMigrationFor(string $operation = '')
+    protected function buildMigrationFor($operation = '')
     {
         if (!in_array($operation, self::VALID_OPERATIONS)) {
             return false;
