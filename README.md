@@ -11,7 +11,7 @@ A new DB table will be created and everytime a model attribute is updated an ent
 
 ## Installation for Laravel 5.5 (package discovery support)
 
-Install package using [Composer](getcomposer.org).
+Install package using [Composer](http://getcomposer.org).
 
     $ composer require tpenaranda/model-log
 
@@ -83,7 +83,7 @@ Available scopes:
 - whereFrom(`<string>`): _Get only logs with an specific initial value._
 - whereTo(`<string>`): _Get only logs with an specific end value._
 - ModifiedByUser(`<numeric/object>`): _Get changes done by some specific user._ Allowed parameters: null, numeric IDs or User object.
-The following scopes only accept [Carbon](carbon.nesbot.com) objects as parameters:
+The following scopes only accept [Carbon](http://carbon.nesbot.com) objects as parameters:
 - loggedBefore(`<Carbon object>`): _Retrieve only entries logged prior to specific date._
 - loggedAfter(`<Carbon object>`): _Retrieve only entries logged after specific date._
 - withinDateRange(`<Carbon object>`, `<Carbon object>`): _Retrieve only entries logged after first parameter and prior to second parameter._
