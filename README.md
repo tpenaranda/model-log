@@ -11,7 +11,7 @@ A new DB table will be created and everytime a model attribute is updated an ent
 
 ## Installation for Laravel 5.5 (package discovery support)
 
-Install package using Composer (getcomposer.org).
+Install package using [Composer|getcomposer.org].
 
     $ composer require tpenaranda/model-log
 
@@ -69,10 +69,28 @@ $my_model->logEntries;
 
 ## Advanced usage
 
+Retrieve log entries using query scopes:
+
+```
+\ModelLogEntry::whereModelClass('App\MyModel')->whereAttribute('my_attribute')->whereTo('value_after_change')->get();
+```
+
+Available scopes:
+
+- whereModel(`<object>`), get logs of an specific Eloquent Model (example: get log data of MyModel ID #4).
+- whereModelClass(`<string/object>`), get logs about an specific Elqouent Model class (example: get log data where MyModel class is involved, regardless of any IDs).
+- whereAttribute(`<string>`), get only logs where some specific attribute was changed.
+- whereFrom(`<string>`), get only logs for an specific initial value.
+- whereTo(`<string>`), get only logs for an specific end value.
+- ModifiedByUser(`<numeric/object>`), get changes done by some specific user. Allowed parameters: null, numeric IDs or User object.
+The following scopes only accept [Carbon|http://carbon.nesbot.com/] objects as parameters:
+- loggedBefore(`<Carbon object>`), retrieve only entries logged prior to specific date.
+- loggedAfter(`<Carbon object>`), retrieve only entries logged after specific date.
+- withinDateRange(`<Carbon object>`, `<Carbon object>`), retrieve only entries logged after first parameter and prior to second parameter.
+
 Create (or drop and create) ModelLog table manually:
 
     $ php artisan model-log:create-log-table
-
 
 Flush ModelLog table:
 
