@@ -27,6 +27,8 @@ trait ObservedByModelLog
 
     public function getLogEntriesAttribute()
     {
-        return ModelLogEntry::forModel($this)->get()->each(function ($i) { return $i->unserializeData(); });
+        return ModelLogEntry::whereModel($this)->get()->each(function ($i) {
+            return $i->unserializeData();
+        });
     }
 }

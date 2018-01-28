@@ -58,7 +58,7 @@ class MyModel extends Model
 ```
 
 Now after every update on that model, observed attributes will be logged automatically.
-Use `protected $log = 'all';` (as string, not array) to log any change.
+Use `protected $log = 'all';` (notice the string, not array) to log any change.
 
 Retrieve log entries:
 
