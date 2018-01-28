@@ -83,6 +83,7 @@ Available scopes:
 - whereFrom(`<string>`): _Get only logs with an specific initial value._
 - whereTo(`<string>`): _Get only logs with an specific end value._
 - ModifiedByUser(`<numeric/object>`): _Get changes done by some specific user._ Allowed parameters: null, numeric IDs or User object.
+
 The following scopes only accept [Carbon](http://carbon.nesbot.com) objects as parameters:
 - loggedBefore(`<Carbon object>`): _Retrieve only entries logged prior to specific date._
 - loggedAfter(`<Carbon object>`): _Retrieve only entries logged after specific date._
