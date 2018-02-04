@@ -1,4 +1,7 @@
 # Laravel ModelLog
+
+[![Latest Stable Version](https://poser.pugx.org/tpenaranda/model-log/v/stable)](https://packagist.org/packages/tpenaranda/model-log) [![Total Downloads](https://poser.pugx.org/tpenaranda/model-log/downloads)](https://packagist.org/packages/tpenaranda/model-log) [![License](https://poser.pugx.org/tpenaranda/model-log/license)](https://packagist.org/packages/tpenaranda/model-log)
+
 A Laravel 5 package to automatically log attributes changes on any of your app models.
 
 ## About package
