@@ -1,7 +1,7 @@
 {
     "name": "tpenaranda/model-log",
     "description": "A Laravel 5 package to automatically log attributes changes on any of your app models.",
-    "keywords": ["laravel", "model", "track", "history", "eloquent", "audit", "changes", "log"],
+    "keywords": ["laravel", "model", "track", "history", "eloquent", "audit", "changes", "attributes", "log"],
     "type": "library",
     "license": "GPL-3.0-or-later",
     "authors": [
