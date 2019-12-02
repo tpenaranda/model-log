@@ -18,7 +18,7 @@ trait ObservedByModelLog
                         'model_foreign_key' => $model->id,
                         'model_name' => get_class($model),
                         'to' => serialize($model->$attribute),
-                        'updated_by_user_id' => auth()->user() ? auth()->user()->id : null,
+                        'updated_by_user_id' => auth()->user() ? auth()->user()->getAuthIdentifier() : null,
                     ]);
                 }
             }
