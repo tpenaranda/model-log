@@ -97,15 +97,7 @@ class ModelLogEntry extends Model
 
     public function scopeModifiedByUser(Builder $builder, $user)
     {
-        if (is_numeric($user)) {
-            $user_id = (int) $user;
-        } elseif (is_object($user) && get_class($user) === auth()->getProvider()->getModel()) {
-            $user_id = $user->id;
-        } elseif (empty($user)) {
-            $user_id = null;
-        } else {
-            throw new InvalidClassException('Invalid argument supplied for modifiedByUser query scope.');
-        }
+        $user_id = (is_object($user) && get_class($user) === auth()->getProvider()->getModel()) ? $user->id : $user;
 
         return $builder->where('updated_by_user_id', $user_id);
     }
