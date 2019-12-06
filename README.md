@@ -2,17 +2,13 @@
 
 [![Latest Stable Version](https://poser.pugx.org/tpenaranda/model-log/v/stable)](https://packagist.org/packages/tpenaranda/model-log) [![Total Downloads](https://poser.pugx.org/tpenaranda/model-log/downloads)](https://packagist.org/packages/tpenaranda/model-log) [![License](https://poser.pugx.org/tpenaranda/model-log/license)](https://packagist.org/packages/tpenaranda/model-log)
 
-A Laravel 5 package to automatically log attributes changes on any of your app models.
+A Laravel package to automatically log attributes changes on any of your app models.
 
 ## About package
 This package is intended for tracking changes of your Eloquent models inside your Laravel application.
 A new DB table will be created and everytime a model attribute is updated an entry will be automatically created on the DB log table.
 
-## Requirements
-
-- Laravel 5
-
-## Installation for Laravel 5.5 (package discovery support)
+## Installation
 
 Install package using [Composer](http://getcomposer.org).
 
@@ -22,11 +18,7 @@ Run migrations to create ModelLog table.
 
     $ php artisan migrate
 
-## Installation for Laravel 5 to 5.4
-
-Install package using Composer (getcomposer.org).
-
-    $ composer require tpenaranda/model-log
+## [This step is not needed on Laravel >= 5.5] Add service provider and create ModelLog DB table.
 
 Add service provider and alias in config/app.php
 
@@ -68,7 +60,6 @@ Retrieve log entries:
 ```
 $my_model->logEntries;
 ```
-
 
 ## Advanced usage
 
