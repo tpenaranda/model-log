@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropTpenarandaModelLogLogEntriesTable{{ migration_count }} extends Migration
+class DropTPenarandaModelLogLogEntriesTable{{ migration_count }} extends Migration
 {
     /**
      * Reverse the migrations.
