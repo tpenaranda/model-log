@@ -28,8 +28,8 @@ class DropTpenarandaModelLogLogEntriesTable{{ migration_count }} extends Migrati
             $table->integer('model_foreign_key')->unsigned()->index();
             $table->string('model_name')->index();
             $table->string('attribute')->index();
-            $table->text('from');
-            $table->text('to');
+            $table->longText('from');
+            $table->longText('to');
             $table->string('updated_by_user_id')->nullable()->index();
             $table->timestamps();
             $table->softDeletes();
