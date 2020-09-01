@@ -44,9 +44,11 @@ Run  ModelLog command in order to create ModelLog DB table.
 Add 'ObservedByModelLog' trait to your model and specify attributes you want to observe/track for changes.
 
 ```
+use TPenaranda\ModelLog\Traits\ObservedByModelLog;
+
 class MyModel extends Model
 {
-    use \ObservedByModelLog
+    use ObservedByModelLog;
 
     protected $log = ['my_attribute', 'track_this_column_too'];
 }
